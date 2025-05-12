@@ -42,3 +42,32 @@ int main() {
 
     return 0;
 }
+
+// Function to generate random number
+int generateRandomNumber(int min, int max) {
+    return min + rand() % (max - min + 1);
+}
+
+// Guessing Game function
+void playGuessingGame() {
+    srand(time(NULL));
+    int numberToGuess = generateRandomNumber(1, 100);
+    int guess, attempts = 0;
+
+    printf("Welcome to the Guessing Game!\n");
+    printf("Guess a number between 1 and 100.\n");
+
+    do {
+        printf("Enter your guess: ");
+        scanf("%d", &guess);
+        attempts++;
+
+        if (guess < numberToGuess) {
+            printf("Too low!\n");
+        } else if (guess > numberToGuess) {
+            printf("Too high!\n");
+        } else {
+            printf("Correct! You guessed it in %d attempts.\n", attempts);
+        }
+    } while (guess != numberToGuess);
+}
