@@ -106,3 +106,50 @@ void playAdventureGame() {
     showIntro();
     pathChoice();
 }
+
+void playTriviaQuizGame() {
+    int score = 0, totalQuestions = 5;
+    char userAnswer[100];
+    char questions[][100] = {
+        "Capital of France?",
+        "Which planet is called the Red Planet?",
+        "Who wrote 'Romeo and Juliet'?",
+        "Chemical symbol for water?",
+        "Year Titanic sank?"
+    };
+    char answers[][100] = {
+        "PARIS", "MARS", "WILLIAM SHAKESPEARE", "H2O", "1912"
+    };
+    int questionOrder[] = {0, 1, 2, 3, 4};
+
+    // Shuffle questions
+    for (int i = 0; i < totalQuestions; i++) {
+        int j = rand() % totalQuestions;
+        int temp = questionOrder[i];
+        questionOrder[i] = questionOrder[j];
+        questionOrder[j] = temp;
+    }
+
+    printf("Welcome to the Trivia Quiz Game!\n");
+
+    for (int i = 0; i < totalQuestions; i++) {
+        printf("\nQuestion %d: %s\n", i + 1, questions[questionOrder[i]]);
+        printf("Your answer: ");
+        getchar();
+        gets(userAnswer);
+
+        // Convert to uppercase
+        for (int j = 0; userAnswer[j]; j++) {
+            userAnswer[j] = toupper(userAnswer[j]);
+        }
+
+        if (strcmp(userAnswer, answers[questionOrder[i]]) == 0) {
+            printf("Correct!\n");
+            score++;
+        } else {
+            printf("Wrong! Correct: %s\n", answers[questionOrder[i]]);
+        }
+    }
+
+    printf("\nYour score: %d/%d\n", score, totalQuestions);
+}
