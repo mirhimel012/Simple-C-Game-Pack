@@ -71,3 +71,38 @@ void playGuessingGame() {
         }
     } while (guess != numberToGuess);
 }
+
+
+void showIntro() {
+    printf("Welcome to the Adventure Game!\n");
+    printf("You're in a dark forest with 3 paths.\n");
+}
+
+void pathChoice() {
+    char choice[20];
+    printf("Choose a path (left/right/straight): ");
+    scanf("%s", choice);
+
+    if (strcmp(choice, "left") == 0) {
+        printf("A wild wolf appears! You lose.\n");
+    } else if (strcmp(choice, "right") == 0) {
+        printf("A peaceful clearing! You win.\n");
+    } else if (strcmp(choice, "straight") == 0) {
+        printf("A rickety bridge appears. Cross or turn back? (cross/turn back): ");
+        scanf("%s", choice);
+        if (strcmp(choice, "cross") == 0) {
+            printf("The bridge breaks. You lose!\n");
+        } else if (strcmp(choice, "turn back") == 0) {
+            printf("You find another path and escape safely. You win!\n");
+        } else {
+            printf("Invalid choice. Game over.\n");
+        }
+    } else {
+        printf("Invalid choice. Game over.\n");
+    }
+}
+
+void playAdventureGame() {
+    showIntro();
+    pathChoice();
+}
