@@ -29,10 +29,3 @@ Made for **SDP 1** to practice basic C programming like loops, conditionals, fun
   `stdio.h`, `stdlib.h`, `time.h`, `string.h`, `ctype.h`  
 
 ---
-
-## ▶️ Run It
-
-1. **Clone the repo:**
-
-   ```bash
-   git clone https://github.com/yourusername/SimpleCGamePack.git
